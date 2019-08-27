@@ -4,28 +4,28 @@ const greeting = document.querySelector(".js-greetings");
 const USER_LS = "currentUser";
 const SHOWING_CN = "showing";
 
-function SafeName(text) {
+function saveName(text) {
   localStorage.setItem(USER_LS, text);
 }
 
 function handleSubmit(event) {
   event.preventDefault();
-  const currentValue = imput.value;
-  painntGreeting(currentValue);
-  savename(currentValue);
+  const currentValue = input.value;
+  paintGreeting(currentValue);
+  saveName(currentValue);
 }
 
 function askForName() {
   form.classList.add(SHOWING_CN);
-  ddEvnTlistener("submit", handleSubmit);
+  form.addEventListener("submit", handleSubmit);
 }
 function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
-  greetin.classlist.add(SHOWING_CN);
+  greeting.classList.add(SHOWING_CN);
   greeting.innerText = `Hola! ${text}!`;
 }
 function loadName() {
-  const currentUser = localStorg.getItem(USER_LS);
+  const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
     askForName();
   } else {
